@@ -48,3 +48,16 @@ body {
   background: #04AA6D;
   cursor: pointer;
 }
+
+/* color picker style */
+input[type="color"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 5em;
+  padding: 0;
+  width: 5em;
+}
