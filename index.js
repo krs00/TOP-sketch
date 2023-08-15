@@ -8,6 +8,8 @@ let gridSize = rangeInput.value
 let currentColor = 'black' 
 
 
+// updates current color variable everytime colorpicker value is changes
+colorPicker.addEventListener("input", (e) => currentColor = e.target.value)
 // updates the gridSize variable to be equal to slider input
 rangeInput.addEventListener("input", (e) => gridSize = e.target.value) 
 // runs createGrid function everytime the value of the rangeslider changes
@@ -20,9 +22,9 @@ rangeInput.addEventListener("input", () => {
   }
 }) 
 
-// updates the currentColor variable to be equal to picker input
+// updates background color of div to currentColor value
 function changeColor(e) {
-  e.target.style.backgroundColor = `${currentColor}` 
+  e.target.style.backgroundColor = `${currentColor}`
 }
 
 function createGrid(gridSize) {
