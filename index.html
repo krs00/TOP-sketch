@@ -9,9 +9,20 @@
   <body>
     <h1>Kymani sketch</h1>
     <div id="canvas"></div>
-    <div class="slidecontainer"> 
-      <input type="range" min="2" max="24" class="slider" id="myRange" step="2" value="8"/> 
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="4"
+        max="32"
+        class="slider"
+        id="myRange"
+        step="2"
+        value="8"
+      />
     </div>
+
+    <label for="favcolor">Choose a color:</label>
+    <input type="color" id="colorpicker" name="colorpicker" value="#ff0000" />
     <script src="/index.js"></script>
   </body>
 </html>
