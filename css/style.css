@@ -12,12 +12,6 @@ body {
 }
 
 
-
-
-
-
-
-
 /* grid size range slider */
 
 .slidecontainer {
@@ -35,9 +29,9 @@ body {
   transition: opacity .2s;
 }
 
-.slider:hover {
+/* .slider:hover {
   opacity: 1;
-}
+} */
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
