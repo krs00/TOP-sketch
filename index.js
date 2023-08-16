@@ -9,7 +9,7 @@ let currentColor = 'black'
 let isMouseDown
 
 // checks if mouse is held down
-document.addEventListener('mousedown', function(e) {
+canvas.addEventListener('mousedown', function(e) {
   e.preventDefault();
   isMouseDown = true
 
