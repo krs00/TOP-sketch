@@ -9,7 +9,11 @@ let currentColor = 'black'
 let isMouseDown
 
 // checks if mouse is held down
-document.addEventListener('mousedown', () => isMouseDown = true)
+document.addEventListener('mousedown', function(e) {
+  e.preventDefault();
+  isMouseDown = true
+
+})
 document.addEventListener('mouseup', () => isMouseDown = false)
 
 
@@ -27,13 +31,17 @@ rangeInput.addEventListener("input", () => {
   }
 }) 
 
-// updates background color of div to currentColor value
-function changeColor(e) {
-  console.log(isMouseDown)
+// updates background color of div to currentColor value if dragged
+function changeColorOnDrag(e) {
   if (isMouseDown) {
     e.target.style.backgroundColor = `${currentColor}`
   }
 }
+
+// updates background color of div to currentColor value if clicked
+function changeColorOnClick(e) {
+  e.target.style.backgroundColor = `${currentColor}`
+  }
 
 function createGrid(gridSize) {
   canvas.replaceChildren() // remove all canvas divs before generating new ones
@@ -43,8 +51,8 @@ function createGrid(gridSize) {
   for (let i = 0; i < gridSize * gridSize; i++) {
     const div = document.createElement('div')
     div.classList.add('item')
-    div.addEventListener('mouseover', changeColor)
-    div.addEventListener('click', changeColor) 
+    div.addEventListener('mouseover', changeColorOnDrag)
+    div.addEventListener('mousedown', changeColorOnClick) 
     canvas.appendChild(div)
   }
 }
