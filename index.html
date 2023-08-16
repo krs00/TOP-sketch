@@ -7,24 +7,35 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
-    <h1>kymani pad</h1>
-    <div id="canvas"></div>
-    <div class="slidecontainer">
-      <input
-        type="range"
-        min="4"
-        max="48" 
-        class="slider"
-        id="myrange"
-        step="2"
-        value="16"
-      />
 
-      <p>grid size <span class="gridlabelnum">16</span> x <span class="gridlabelnum">16</span> </p>
+    <div class="section"></div>
+
+    <div class="canvas-section">
+      <h1 id="title">kymani pad</h1>
+      <div id="canvas"></div>
     </div>
 
-    <label for="favcolor">color picker:</label>
-    <input type="color" id="colorpicker" name="colorpicker" value="#000000" />
+    <div class="section"> 
+
+      <div class="slidecontainer">
+        <input
+          type="range"
+          min="4"
+          max="48" 
+          class="slider"
+          id="myrange"
+          step="2"
+          value="16"
+        />
+  
+        <p>grid size <span class="gridlabelnum">16</span> x <span class="gridlabelnum">16</span> </p>
+      </div>
+  
+      <label for="favcolor">color picker:</label>
+      <input type="color" id="colorpicker" name="colorpicker" value="#000000" />
+
+    </div>
+    
     <script src="/index.js"></script>
   </body>
 </html>
