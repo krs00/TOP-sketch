@@ -1,9 +1,9 @@
 @import url("reset.css");
 
 body {
-  background-color: gray;
-  font-family: 'helvetica';
-  display: flex;
+  background-color: skyblue;
+  font-family: 'Calibri';
+  display: flex; 
 
 }
 
@@ -15,7 +15,8 @@ body {
   min-width: 0;
   /* stop sections from shrinking */
   flex-shrink: 0;
-
+  align-items: center;
+  display: flex;
   border: 1px solid black;
     padding: 10px;
 }
@@ -32,11 +33,11 @@ body {
 
 #title {
   font-size: 50px;
-  font-weight: 900px;
+  font-weight: bold;
   margin: 50px;
   text-align: center;
-
 }
+
 
 #canvas {
   width: 600px; 
@@ -49,7 +50,7 @@ body {
 /* grid size range slider */
 
 .slidecontainer {
-  width: 350px;
+  width: 82%;
   margin-top: 25px
 }
 
@@ -92,7 +93,19 @@ input[type="color"] {
   background: none;
   border: none;
   cursor: pointer;
-  height: 5em;
+  height: 50px;
   padding: 0;
-  width: 5em;
+  width: 45px;
+}
+
+.menu-container {
+  background-color: gray;
+  height: 500px;
+  width: 300px;
+  border-radius: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }

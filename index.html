@@ -6,16 +6,20 @@
     <title>kymani ★ pad</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
-  <body>
+  <body class="checkboard">
 
     <div class="section"></div>
 
     <div class="canvas-section">
-      <h1 id="title">kymani pad</h1>
+      <h1 id="title">Kymani Pad</h1>
       <div id="canvas"></div>
     </div>
 
-    <div class="section"> 
+    <div class="section">
+
+      <div class="menu-container">
+
+        <p><span class="gridlabelnum">16</span> x <span class="gridlabelnum">16</span> </p>
 
       <div class="slidecontainer">
         <input
@@ -28,11 +32,12 @@
           value="16"
         />
   
-        <p>grid size <span class="gridlabelnum">16</span> x <span class="gridlabelnum">16</span> </p>
       </div>
   
       <label for="favcolor">color picker:</label>
       <input type="color" id="colorpicker" name="colorpicker" value="#000000" />
+
+    </div>
 
     </div>
     
