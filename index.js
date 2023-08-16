@@ -5,7 +5,12 @@ const colorPicker = document.querySelector('#colorpicker')
 const gridItems = document.getElementsByClassName('item')
 const gridLabelNum = document.getElementsByClassName('gridlabelnum') 
 let gridSize = rangeInput.value
-let currentColor = 'black' 
+let currentColor = 'black'
+let isMouseDown
+
+// checks if mouse is held down
+document.addEventListener('mousedown', () => isMouseDown = true)
+document.addEventListener('mouseup', () => isMouseDown = false)
 
 
 // updates current color variable everytime colorpicker value is changes
@@ -24,7 +29,10 @@ rangeInput.addEventListener("input", () => {
 
 // updates background color of div to currentColor value
 function changeColor(e) {
-  e.target.style.backgroundColor = `${currentColor}`
+  console.log(isMouseDown)
+  if (isMouseDown) {
+    e.target.style.backgroundColor = `${currentColor}`
+  }
 }
 
 function createGrid(gridSize) {
@@ -36,10 +44,10 @@ function createGrid(gridSize) {
     const div = document.createElement('div')
     div.classList.add('item')
     div.addEventListener('mouseover', changeColor)
+    div.addEventListener('click', changeColor) 
     canvas.appendChild(div)
   }
 }
-
 
 
 createGrid(8)
