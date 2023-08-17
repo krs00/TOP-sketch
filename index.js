@@ -8,8 +8,15 @@ const clearBtn = document.querySelector("#clear-btn");
 const partyBtn = document.querySelector("#party-btn");
 let gridSize = rangeInput.value;
 let currentColor = "black";
-let isMouseDown;
+let isMouseDown; 
 let isPartyMode = false;
+let prevColor
+
+updateCurrentColor = function(e) {
+  isPartyMode = false
+  currentColor = e.target.value
+
+}
 
 // checks if mouse is held down
 canvas.addEventListener("mousedown", function (e) {
@@ -19,7 +26,7 @@ canvas.addEventListener("mousedown", function (e) {
 document.addEventListener("mouseup", () => (isMouseDown = false));
 
 // updates current color variable everytime colorpicker value is changes
-colorPicker.addEventListener("input", (e) => (currentColor = e.target.value));
+colorPicker.addEventListener("input", updateCurrentColor);
 // updates the gridSize variable to be equal to slider input
 rangeInput.addEventListener("input", (e) => (gridSize = e.target.value));
 // runs createGrid function everytime the value of the rangeslider changes
@@ -51,21 +58,33 @@ clearBtn.addEventListener("click", clearGrid);
 function clearGrid() {
   canvas.replaceChildren();
   createGrid(gridSize);
+} 
+
+
+colorGoCrazy = function () {
+  currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16) 
 }
 
 
 // Handle party mode state
-partyBtn.addEventListener("click", () => (isPartyMode = !isPartyMode));
+partyBtn.addEventListener("click", togglePartyMode);
 console.log(`party mode is ${isPartyMode}`)
-partyBtn.addEventListener('click', () => console.log(`party mode is ${isPartyMode}`))
 
-if (isPartyMode) {
-  document.addEventListener('mousemove', () => currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16))
-}
+function togglePartyMode() {
+  if (isPartyMode === false) {
+    isPartyMode = true
+    prevColor = currentColor
+    canvas.addEventListener('mousemove', colorGoCrazy)
+  } else 
 
-function randomizeCurrentColor() {
-  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  currentColor = randomColor;
+  { 
+  isPartyMode = false
+  canvas.removeEventListener('mousemove', colorGoCrazy)
+  currentColor = prevColor
+  }
+
+
+ 
 }
 
 function createGrid(gridSize) {
