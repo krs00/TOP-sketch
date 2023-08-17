@@ -1,4 +1,4 @@
-// get necessary dom nodes
+// GET NECESSARY DOM NODES
 const canvas = document.querySelector("#canvas");
 const rangeInput = document.querySelector("#myrange");
 const colorPicker = document.querySelector("#colorpicker");
@@ -6,6 +6,7 @@ const gridItems = document.getElementsByClassName("item");
 const gridLabelNum = document.getElementsByClassName("gridlabelnum");
 const clearBtn = document.querySelector("#clear-btn");
 const partyBtn = document.querySelector("#party-btn");
+const partyBtnAnnounce = document.querySelector(".party-btn-announce");
 let gridSize = rangeInput.value;
 let currentColor = "black";
 let isMouseDown; 
@@ -14,8 +15,8 @@ let prevColor
 
 updateCurrentColor = function(e) {
   isPartyMode = false
+  canvas.removeEventListener('mousemove', colorGoCrazy)
   currentColor = e.target.value
-
 }
 
 // checks if mouse is held down
@@ -25,6 +26,7 @@ canvas.addEventListener("mousedown", function (e) {
 });
 document.addEventListener("mouseup", () => (isMouseDown = false));
 
+colorPicker.addEventListener('input', () => partyBtnAnnounce.innerText = 'OFF')
 // updates current color variable everytime colorpicker value is changes
 colorPicker.addEventListener("input", updateCurrentColor);
 // updates the gridSize variable to be equal to slider input
@@ -60,11 +62,9 @@ function clearGrid() {
   createGrid(gridSize);
 } 
 
-
 colorGoCrazy = function () {
   currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16) 
 }
-
 
 // Handle party mode state
 partyBtn.addEventListener("click", togglePartyMode);
@@ -75,18 +75,17 @@ function togglePartyMode() {
     isPartyMode = true
     prevColor = currentColor
     canvas.addEventListener('mousemove', colorGoCrazy)
+    partyBtnAnnounce.innerText = 'ON'
   } else 
 
   { 
   isPartyMode = false
   canvas.removeEventListener('mousemove', colorGoCrazy)
   currentColor = prevColor
+  partyBtnAnnounce.innerText = 'OFF'
   }
 
-
- 
 }
-
 function createGrid(gridSize) {
   canvas.replaceChildren(); // remove all canvas divs before generating new ones
   canvas.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
@@ -102,3 +101,7 @@ function createGrid(gridSize) {
 }
 
 createGrid(16);
+
+// Done for now but some of the code is not very DRY.
+// I'll come back at some point to iterate with optimizations
+// and update the CSS so it looks prettier. 
