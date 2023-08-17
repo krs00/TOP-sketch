@@ -3,10 +3,14 @@ const canvas = document.querySelector('#canvas')
 const rangeInput = document.querySelector('#myrange') 
 const colorPicker = document.querySelector('#colorpicker')
 const gridItems = document.getElementsByClassName('item')
-const gridLabelNum = document.getElementsByClassName('gridlabelnum') 
+const gridLabelNum = document.getElementsByClassName('gridlabelnum')
+const clearBtn = document.querySelector('#clear-btn') 
 let gridSize = rangeInput.value
 let currentColor = 'black'
 let isMouseDown
+
+
+clearBtn.addEventListener('click', clearGrid)
 
 // checks if mouse is held down
 canvas.addEventListener('mousedown', function(e) {
@@ -43,6 +47,13 @@ function changeColorOnClick(e) {
   e.target.style.backgroundColor = `${currentColor}`
   }
 
+
+// function to clear grid on button click
+function clearGrid() {
+  canvas.replaceChildren()
+  createGrid(gridSize)
+}
+
 function createGrid(gridSize) {
   canvas.replaceChildren() // remove all canvas divs before generating new ones
   canvas.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`
@@ -56,6 +67,5 @@ function createGrid(gridSize) {
     canvas.appendChild(div)
   }
 }
-
 
 createGrid(16)
