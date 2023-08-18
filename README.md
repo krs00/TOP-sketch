@@ -1,6 +1,6 @@
 # Drawing Pad
 
-#### A canvas you can draw on
+#### A canvas made in javascript for drawing
 
 ## Technologies Used
 
@@ -10,7 +10,7 @@
 
 ## Description
 
-This is a drawing pad. Use the slider to change the grid size. Hit the "party mode" button to activate a random color functionality.
+This is a drawing pad. Drag the slider to change the grid size. Hit the "party mode" button to activate a random color functionality.
 
 ## Setup/Installation Requirements
  
