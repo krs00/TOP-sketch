@@ -68,7 +68,6 @@ colorGoCrazy = function () {
 
 // Handle party mode state
 partyBtn.addEventListener("click", togglePartyMode);
-console.log(`party mode is ${isPartyMode}`)
 
 function togglePartyMode() {
   if (isPartyMode === false) {
