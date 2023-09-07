@@ -2,6 +2,10 @@
 
 #### A canvas made in javascript for drawing
 
+## Live Demo
+ 
+[Click here to draw!](https://krs00.github.io/TOP-sketch/)  
+
 ## Technologies Used
 
 * HTML
